@@ -104,8 +104,6 @@ export class EditComponent {
       } else {
         this.hpValueRangeValidation = true;
       }
-      console.log(this.hpValueRangeValidation);
-
       this.hasChange = Object.keys(initialValue).some((key) => {
         return this.editForm.value[key] != initialValue[key];
       });

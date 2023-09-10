@@ -29,8 +29,6 @@ const routes: Routes = [
   },
 ];
 
-console.log('girdi');
-
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
