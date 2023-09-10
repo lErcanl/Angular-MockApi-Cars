@@ -1,0 +1,135 @@
+.edit {
+  margin: 32px auto 32px auto;
+  width: 50%;
+  overflow-x: auto;
+  background-color: #ffffff;
+  padding: 32px;
+
+  @media screen and (max-width: 875px) {
+    width: 80%;
+  }
+
+  .title {
+    font-size: 24px;
+    font-weight: 600;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 12px;
+
+    span {
+      font-weight: bold;
+      background-color: #f5f5f5;
+      display: inline-block;
+      padding: 5px;
+    }
+  }
+
+  form {
+    max-width: 420px;
+    width: 100%;
+    margin-top: 24px;
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-column-gap: 64px;
+      grid-row-gap: 32px;
+      @media screen and (max-width: 560px) {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .form-group {
+      &.colors {
+        margin-top: 32px;
+      }
+
+      label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 6px;
+
+        &.stock-label {
+          display: inline;
+        }
+      }
+
+      input {
+        width: 100%;
+        padding: 8px 12px;
+        font-size: 14px;
+        border: 1px solid #b7b7b7;
+        border-radius: 4px;
+
+        &.stock-checkbox {
+          float: right;
+          width: auto;
+          cursor: pointer;
+        }
+      }
+
+      .validation {
+        color: red;
+        margin-top: 5px;
+        font-size: 12px;
+      }
+      .radio-elements {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: 64px;
+        grid-row-gap: 32px;
+
+        @media screen and (max-width: 560px) {
+          grid-column-gap: 26px;
+        }
+
+        .radio-element {
+          display: flex;
+          justify-content: space-between;
+          .color {
+            div {
+              width: 80px;
+              height: 40px;
+            }
+          }
+        }
+      }
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 32px;
+
+      button {
+        display: block;
+        width: 100%;
+        height: 44px;
+        font-weight: bold;
+        border-radius: 4px;
+        cursor: pointer;
+
+        &:first-child {
+          margin-bottom: 16px;
+          background-color: rgb(23, 30, 36);
+          color: #fff;
+        }
+
+        &.disabled {
+          background-color: rgb(191, 190, 190);
+          border: 1px solid #eee;
+
+          &:hover {
+            cursor: not-allowed;
+          }
+        }
+
+        &:last-child {
+          background-color: #fff;
+          border: 1px solid black;
+        }
+      }
+    }
+  }
+}

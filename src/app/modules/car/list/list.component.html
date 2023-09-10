@@ -1,0 +1,44 @@
+<div class="list">
+  <h2>Car List</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>CARID</th>
+        <th>INSTOCK</th>
+        <th>HP</th>
+        <th>PRICE</th>
+        <th>COLOR</th>
+        <th>EDIT</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let car of cars">
+        <!-- If some of data corrupted we can put "-" sign on it -->
+
+        <td>{{ car.id ? car.id : "-" }}</td>
+        <td>{{ car.car_id ? car.car_id : "-" }}</td>
+        <td>{{ car.instock ? "Available" : "Not Available" }}</td>
+        <td>{{ car.hp ? car.hp : "-" }}</td>
+        <td>
+          <span *ngIf="car.price">{{
+            car.price | currency : "USD" : "$" : "1.2-2"
+          }}</span>
+          <span *ngIf="!car.price">-</span>
+        </td>
+
+        <td>
+          <span class="color" [ngStyle]="{ 'background-color': car.color }">
+            {{ car.color ? car.color : "-" }}
+          </span>
+        </td>
+        <td>
+          <button (click)="edit(car.id)">
+            <fa-icon [icon]="['fas', 'edit']"></fa-icon>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

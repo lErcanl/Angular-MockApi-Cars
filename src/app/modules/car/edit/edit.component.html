@@ -1,0 +1,108 @@
+<div class="edit" *ngIf="this.editForm?.value.car_id">
+  <div class="title">
+    Edit Car Informations For:
+    <span>{{ editFormControl["car_id"].value }}</span>
+  </div>
+  <form [formGroup]="editForm">
+    <div class="grid-container">
+      <div class="form-group">
+        <label>Id :</label>
+        <input readonly type="text" formControlName="id" />
+      </div>
+
+      <div class="form-group">
+        <label>Car Id :</label>
+        <input readonly type="text" formControlName="car_id" />
+      </div>
+
+      <div class="form-group">
+        <label>Horse Power (Hp) :</label>
+        <input type="number" formControlName="hp" />
+        <div class="validation">
+          <span
+            *ngIf="
+              editFormControl.hp.touched && editFormControl.hp.errors?.required
+            "
+          >
+            Hp is required
+          </span>
+
+          <span
+            *ngIf="
+              !hpValueRangeValidation && !editFormControl.hp.errors?.required
+            "
+          >
+            Hp should be range of between 100 to 550
+          </span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Price</label>
+        <input
+          type="text"
+          currencyMask
+          formControlName="price"
+          [options]="{ prefix: '$', thousands: '.', decimal: ',' }"
+        />
+        <span
+          class="validation"
+          *ngIf="
+            editFormControl.price.touched &&
+            editFormControl.price.errors?.required
+          "
+        >
+          Price is required
+        </span>
+      </div>
+
+      <div class="form-group">
+        <label class="stock-label">Instock :</label>
+        <input
+          class="stock-checkbox"
+          type="checkbox"
+          formControlName="instock"
+        />
+        <span
+          class="validation"
+          *ngIf="
+            editFormControl.instock.touched &&
+            editFormControl.instock.errors?.required
+          "
+        >
+          Instock is required
+        </span>
+      </div>
+    </div>
+
+    <div class="form-group colors">
+      <label>Colors :</label>
+      <div class="radio-elements">
+        <div class="radio-element" *ngFor="let color of colors">
+          <div class="color">
+            <span>{{ color | titlecase }}</span>
+            <div [ngStyle]="{ 'background-color': color }"></div>
+          </div>
+
+          <input
+            class="stock-checkbox"
+            type="radio"
+            [value]="color"
+            formControlName="color"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="buttons">
+      <button
+        (click)="onSubmit()"
+        [disabled]="editForm.invalid || !hasChange"
+        [class.disabled]="editForm.invalid || !hasChange"
+      >
+        Save
+      </button>
+
+      <button (click)="back()">Cancel</button>
+    </div>
+  </form>
+</div>
