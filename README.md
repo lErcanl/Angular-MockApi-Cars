@@ -15,7 +15,11 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 ## Additional Node Packages
 
 @ngneat/until-destroy -> avoid memory leaks when subscribe to the observables
+
 angular-notifier -> giving errors or success messages after the api calls to the user
+
 ng2-currency-mask -> making input as a currency format
+
 ngx-spinner -> to show load spinner
+
 font-awesome -> getting icons
