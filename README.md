@@ -2,6 +2,8 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.2.
 
+Node Version is 18.13.0
+
 In this project https://mockapi.io/ is used to create mock api, to list CarData and updating them inside edit form
 
 ## Why Chose Angular As Framework ?
